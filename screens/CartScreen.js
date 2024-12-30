@@ -3,7 +3,6 @@ import React from 'react'
 import { featured } from '../constants'
 import { themeColors } from '../theme';
 import * as Icon from "react-native-feather";
-import navigation from '../navigation';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 export default function CartScreen() {
@@ -63,6 +62,31 @@ export default function CartScreen() {
                 }
 
             </ScrollView>
+            {/* Totals */}
+            <View className="p-6 px-8 rounded-t-3xl space-y-4" style={{ backgroundColor: themeColors.bgColor(0.2) }}>
+                <View className="flex-row justify-between">
+                    <Text className="text-gray-700">Subtotal</Text>
+                    <Text className="text-gray-700">$20</Text>
+                </View>
+                <View className="flex-row justify-between">
+                    <Text className="text-gray-700">Delivery Fee</Text>
+                    <Text className="text-gray-700">$2</Text>
+                </View>
+                <View className="flex-row justify-between">
+                    <Text className="text-gray-700 font-extrabold">Order Total</Text>
+                    <Text className="text-gray-700 font-extrabold">$30</Text>
+                </View>
+                <View>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('OrderPrepairing')}
+                        style={{ backgroundColor: themeColors.bgColor(1) }}
+                        className="p-3 rounded-full"
+                    >
+                        <Text className="text-white text-center font-bold text-lg">Place Holder</Text>
+
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
     )
 }
